@@ -22,7 +22,7 @@ contract Token{
     }
     
     function balanceOf(address account) external view returns (uint256){
-        require(msg.sender == account, "You can't access the information");
+        // require(msg.sender == account, "You can't access the information");
         return balances[account];
     }
 }
