@@ -17,7 +17,9 @@ describe("Token Contract", function(){
             const ownerBalance = await danishToken.balanceOf(owner.address);
             expect(totalSupply).to.equal(ownerBalance);
         })
+    })
 
+    describe("Token Transaction",()=>{
         it("Should transfer token between accounts", async function(){
             await danishToken.transfer(addr1.address,10);
             expect(await danishToken.balanceOf(addr1.address)).to.equal(10);
