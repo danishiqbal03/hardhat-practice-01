@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.5.0 <0.9.0;
-
+import "../node_modules/hardhat/console.sol";
 contract Token{
     string public name = "Danish Token";
     string public symbol = "DHT";
@@ -16,6 +16,8 @@ contract Token{
     }
 
     function transfer(address _to, uint256 _amount) external{
+        console.log("** the sender balance is %s tokens",balances[msg.sender]);
+        console.log("** the sender sending to %s and the amount is %s tokens",_to,_amount);
         require(balances[msg.sender] >= _amount, "account has insufficient balance");
         balances[msg.sender] -= _amount;
         balances[_to] += _amount;
